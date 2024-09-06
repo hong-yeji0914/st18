@@ -1,0 +1,9 @@
+리포지토리 초기화
+로컬 리포지토리를 원격 리포지토리로 동기화(push) = 로컬저장소의 내용을 원격저장소로 올리기 / 최초 원격에 push 
+git add(스테이지에 추가)
+git commit
+branch 만들기
+branch 체크아웃(전환)
+branch 게시(github에 branch 동기화)
+동기화/push (로컬과 리모트 브랜치의 버전 동기화)
+Pull Request 
