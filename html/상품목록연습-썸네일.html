@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상품목록연습-thumbnail</title>
+  </head>
+  <body>
+    <!-- 
+    emmet
+    > : 부모>자식
+    + : 형제+형제
+    * : 식의 반복 (표기예시 div*3)
+    $ : 반복되는 요소에 넘버링 할 때 (표기예시 span.item$*2 = span.item1+span.item2)
+    . : class (표기예시 span.title = 태그.클래스명) (span.item*2 = span.item+span.item)
+    # : 아이디 (표기예시 태그#아이디 header#header)    
+    -->
+    <div class="prdList__item">
+      <div class="thumbnail">
+        <a href=""
+          ><img
+            src="imgae-multimedia/image/12c96f2fdea79dc1ded7cc3a7d82d2cc.png"
+            alt=""
+        /></a>
+        <div class="likeButton">
+            <!-- button>img.likePrdIcon+strong>span.likeProCount -->
+            <button>
+                <img src="" alt="" class="likePrdIcon">
+                <strong>
+                    <span class="likeProCount"></span>
+                </strong>
+            </button>
+        </div>
+    <!-- <div class="b"></div> => thumbnail의 자식 -->
+    </div>
+    <!-- <div class="a"></div> => thumbnail의 형제 -->
+    <!-- .thumbnail -->
+    </div>
+  </body>
+</html>
