@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품목록연습1</title>
+</head>
+<body>
+    <!-- div>div.ec-base-product>ul.prdList.grid4 (ul은 class가 두 가지)-->
+    <div>
+        <div class="ec-base-product">
+            <ul class="prdList grid4"></ul>
+        </div>
+    </div>
+    <!-- ul.prdList.grid4>li#anchorBoxId_00*2 -->
+    <ul class="prdList grid4">
+        <li id="anchorBoxId_00"></li>
+        <li id="anchorBoxId_00"></li>
+    </ul>
+
+    <!-- ul.prdList.grid4>li#anchorBoxId_01+li#anchorBoxId_02 -->
+    <!-- ul.prdList.grid4>li#anchorBoxId_0$*2 -->
+    <ul class="prdList grid4">
+        <li id="anchorBoxId_01"></li>
+        <li id="anchorBoxId_02"></li>
+    </ul>
+
+    <!-- li#anchorBoxId_00>div.prdList__item>div.thumbnail+div.description -->
+    <li id="anchorBoxId_00">
+        <div class="prdList__item">
+            <div class="thumbnail"></div>
+            <div class="description"></div>
+        </div>
+    </li>
+</body>
+</html>
