@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>글꼴관련css.html</title>
+    <style>
+      span.title {
+        font-weight: 600;
+      }
+      section {
+        background-color: #ccc;
+        color: #00f;
+        /* font-size: 100%; */
+        /* font-size:14px; => 10.5pt 정도의 크기
+        font-size:0.0875%; */
+        /* font-size:0.875em; 16px->1em으로 기준하여 계산한 것 */
+
+        /* 
+        font-size의 기본값
+        16px 14pt 1em 100% 
+        */
+        font-size: 1em; 
+        /* line-height: 100%; */
+        /* line-height: normal; */
+        line-height: 1.4;
+
+        /* 모두 동일하지만, em이 가장 많이 사용됨! */
+      }
+      span {
+        color: #f00;
+      }
+      .title {
+        font-weight: 800;
+      }
+      .section2 span {
+        color: #0f0;
+      }
+
+      body{color:#f0f;}
+    </style>
+  </head>
+  <body>
+    <!-- section.section$*3>p>lorem -->
+    <section class="section1">
+      <p>
+        Lorem <span class="title">ipsum</span>, dolor sit amet consectetur
+        adipisicing elit. Ad odit reprehenderit laboriosam nobis accusantium
+        repellat doloribus quaerat et vero id, unde voluptatem iusto nam sint
+        porro corrupti nisi quibusdam deleniti?
+      </p>
+    </section>
+    <section class="section2">
+      <p>
+        Id <span>recusandae</span>, veniam itaque repellat maxime, facere
+        ratione eligendi similique consequuntur autem necessitatibus
+        praesentium, porro alias! Enim facilis quam tempora fugit dolore
+        voluptatibus cum reprehenderit non quidem! Fugiat, pariatur aspernatur.
+      </p>
+    </section>
+    <section class="section3">
+      <p>
+        Obcaecati <span>illo</span> aliquam ipsa iste expedita atque laborum
+        soluta voluptates nisi quibusdam, quis sed tempore accusamus dolorem
+        ullam, fugit odio ut consequatur. Suscipit delectus ipsam ducimus
+        obcaecati modi quos perferendis?
+      </p>
+    </section>
+    <!-- p>a>{글꼴을 상속받지 않는 a태그} -->
+     <!-- 
+    a태그의 글자색(color)을 지정하려면 부모나 조상이 아닌
+    a태그 본인에게 직접 color를 지정해야함 
+    -->
+
+    <p><a href="">글꼴을 상속받지 않는 a태그</a></p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt maiores, laboriosam deleniti eveniet expedita id necessitatibus, ad reiciendis error eum magnam vel sit dolorem totam perspiciatis dolores? Sed, quo alias.</p>
+
+</body>
+</html>
