@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css의 형식1.css</title>
+    <!-- html 코멘트 -->
+<style>
+        /* css 코멘트 */
+        /* 
+        css 구문형식
+        선택자 {속성:값1 값2 값3; 속성:값; 속성:값;}
+        선택자 {
+        속성:값1 값2 값3
+        속성:값;
+        속성:값;
+        } 
+        */
+
+    body{background-color: #864; color:yellow; margin:0;}
+    /* class2 선택자 */
+    .section2{background-color: #ccc;}
+
+    /* id선택 #wrap */
+    #wrap{color: #000;}
+
+    /* class main 후손 중 class section 직계자식 div를 선택 */
+    .main .section > div{background-color: #f00;}
+
+    .main > div{background-color: #0f0;}
+
+    .main div{background-color: #00f;}
+
+</style>
+</head>
+<body>
+    <!-- #wrap -->
+    <div id="wrap">
+        <!-- div.header --> 
+        <!-- ctrl + enter : vscode에서 커서만 이동하는 줄바꿈 -->
+        <div class="header"></div>
+        <div class="main">
+            <!-- section.section.section$*3 
+             첫번째 section = 태그
+             두번째 .section = class section (.section.section$ = 하나의 요소에 두개의 class)
+             세번째 .section$ = class section+숫자
+             *3 = 숫자만큼 앞단계 요소를 반복 -->
+
+              <!-- section.section.section$*3>div.inner>p*3>{아이템$} 
+               emmet 표기법 : {텍스트} 중괄호 안에 넣으면 글자가 들어간다 -->
+              <section class="section section1">
+                <div class="inner">
+                    <p>아이템1</p>
+                    <p>아이템2</p>
+                    <p>아이템3</p>
+                </div>
+              </section>
+              <section class="section section2">
+                <div class="inner">
+                    <p>아이템1</p>
+                    <p>아이템2</p>
+                    <p>아이템3</p>
+                </div>
+              </section>
+              <section class="section section3">
+                <div class="inner">
+                    <p>아이템1</p>
+                    <p>아이템2</p>
+                    <p>아이템3</p>
+                </div>
+              </section>
+        </div>
+    </div>
+</body>
+</html>
