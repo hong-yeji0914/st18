@@ -1,61 +1,89 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>퍼센트와 vw 차이</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
 
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        /* reset : 브라우저가 기본적으로 가지는 여백을 제거하는 작업*/
-        *{margin: 0; padding: 0;}
-        .wrap{
-            /* width: 100%; */
-            width: 100vw;
-            height: 50vh;
-            background-color: #66f;
-        }
-        .title-text{
-            font-size: 100px;
-            font-family: "Noto Sans KR", sans-serif;
-        }
+      /* reset : 브라우저가 기본적으로 가지는 여백을 제거하는 작업*/
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      /* 브라우저 화면 full size로 활용 */
+      .wrap {
+        width: 100%;
+        /* width: 100vw; */
+        height: 100vh;
+        background-color: #66f;
+        text-align: center;
+        /* 인라인 레벨의 수평정렬 */
+        align-content: center;
+        /* 블록레벨의 직계자식의 수직정렬 */
+      }
+      .title-text {
+        font-size: 100px;
+        font-family: "Noto Sans KR", sans-serif;
+      }
 
-        .title-text:first-child{
-            font-weight: 100;
-        }
+      .title-text:first-child {
+        font-weight: 100;
+      }
 
-        /* 단위 % : 가장 가까운 블록레벨의 요소가 된다 */
-        /* css block 기본값
+      /* 단위 % : 가장 가까운 블록레벨의 요소가 된다 */
+      /* css block 기본값
         너비 -> 부모 content의 수평 영역을 사용 (auto)
         높이-> 자식의 내용만큼 높이 사용 */
-        .box-p{
-            width: 200px;
-            height: 300px;
-            background-color: #0ff;
-        }
+      .box-p {
+        width: 200px;
+        height: 300px;
+        background-color: #0ff;
+      }
 
-        /* .box-c의 부모 요소에  */
-        .box-c{
-            width: 50%;
-            height: 50%;
-            background-color: #f9f;
-        }
+      /* .box-c의 부모 요소에  */
+      .box-c {
+        width: 50%;
+        height: 50%;
+        background-color: #f9f;
+      }
+
+      .box1 {
+        width: 100%;
+        min-height: 200px;
+        background-color: #f66;
+      }
+      .box2 {
+        /* width: 100vw; */
+        min-height: 200px;
+        background-color: #696;
+      }
     </style>
-
-
-</head>
-<body>
+  </head>
+  <body>
     <div class="wrap">
-        <!-- .title-text -->
-        <div class="title-text">준비된 퍼블리셔</div>
+      <!-- .title-text -->
+      <div class="title-text">준비된 퍼블리셔</div>
     </div>
 
     <!-- div.box-p>div.box-c -->
     <div class="box-p">
-        <div class="box-c">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+      <div class="box-c">
+        Lorem ipsum dolor sit amet consectetur adipisicing.
+      </div>
     </div>
-</body>
+
+    <div class="box1"></div>
+    <div class="box2"></div>
+  </body>
 </html>

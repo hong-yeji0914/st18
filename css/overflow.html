@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>overflow</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        .wrap{
+            margin:20px auto; width: 80%;
+        }
+        .box{
+            width: 200px;
+            height: 100px;
+            margin-bottom: 50px;
+            background-color: #6f6;
+        }
+        .box1{overflow: visible;}
+        .box2{overflow: hidden;}
+        .box3{overflow: scroll;}
+        .box4{overflow: auto;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <!-- .box.box$*4>{box$}+lorem20 -->
+        <div class="box box1">
+            box1
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti harum molestiae totam sed provident modi sit? Voluptatibus nesciunt laboriosam delectus.
+        </div>
+        <div class="box box2">
+            box2
+            Eos pariatur quo libero voluptatem, nihil doloremque repellat nisi autem impedit vitae repudiandae maiores perferendis facere quam ratione ullam consequuntur?
+        </div>
+        <div class="box box3">
+            box3
+            Dolorum aspernatur eius ab repellat commodi enim iste, suscipit minima totam necessitatibus, dolor, consequatur asperiores quod nam eligendi possimus saepe.
+        </div>
+        <div class="box box4">
+            box4
+            Dolorum, esse nulla distinctio odio cumque ratione. Odio quibusdam, officiis qui commodi, minima laborum adipisci recusandae tempora omnis illum natus.
+        </div>
+    </div>
+</body>
+</html>
