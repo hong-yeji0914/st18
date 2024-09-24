@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background-attachment.html</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        .sect{height: 50vh;} /* vh 브라우저 전체를 기준으로 하는 단우ㅏ = 50vh (브라우저의 반만 차지해라)*/
+
+        /* .sect1{background-color: #f6f;}
+        .sect2{background-color: #6f6;}
+        .sect3{background-color: #f66;}
+        .sect4{background-color: #66f;} */
+
+        .sect:first-child{background-color: #f6f;} 
+        /* 가상 선택자 부르는 법 : nth-child (or first-child) */
+        .sect:nth-child(2){background-color: #6f6;}
+        .sect:nth-child(3){background-color: #f66;}
+        .sect:nth-child(4){background-color: #66f;}
+
+        .sect1{
+            background-image: url(./images/bg.jpg);
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            background-attachment: scroll; /* scroll이 기본값으로 명령하지 않아도 배경이미지가 고정됨 */
+        }
+
+        .sect3{
+            background-image: url(./images/bg.jpg);
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            background-attachment: fixed; /* 스크롤이 움직임에 따라 보여지는 위치가 달라짐 -> 배경이미지가 브라우저를 기준으로 배치되는 것 */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <!-- section.sect.sect$*4>.inner>p.title>{section$} -->
+        <section class="sect sect1">
+            <div class="inner">
+                <p class="title">section1</p>
+            </div>
+        </section>
+        <section class="sect sect2">
+            <div class="inner">
+                <p class="title">section2</p>
+            </div>
+        </section>
+        <section class="sect sect3">
+            <div class="inner">
+                <p class="title">section3</p>
+            </div>
+        </section>
+        <section class="sect sect4">
+            <div class="inner">
+                <p class="title">section4</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
