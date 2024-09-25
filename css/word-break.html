@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>word-break</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        margin: 20px auto;
+        width: 400px;
+        border: 1px solid #000;
+      }
+      .box1{
+        word-break: keep-all;
+        text-align: center;
+      }
+      .box2{
+        word-break: normal;
+        text-align: center;
+      }
+      .box3{
+        word-break: break-all;
+        /* 영어도 단어단위 word-wrap이 아니라 문자 단위로 wrap */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box box1">
+      앤구르단이 그승엔이 느페민악도록 으이걸을 쟌로 깅차다 담딕타울이파는
+      명연다 셍잣이나 빅쳐는 릉인 힉으마배시를 우팡 쥬우녹도 방린데히라도 로저지
+      딜믐힘자다 아마 까오브하를 아우다
+    </div>
+    <div class="box box2">
+      앤구르단이 그승엔이 느페민악도록 으이걸을 쟌로 깅차다 담딕타울이파는
+      명연다 셍잣이나 빅쳐는 릉인 힉으마배시를 우팡 쥬우녹도 방린데히라도 로저지
+      딜믐힘자다 아마 까오브하를 아우다
+    </div>
+    <div class="box box3">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, neque?
+      Architecto harum aperiam explicabo sint hic cum eum modi maiores!
+    </div>
+    <div class="box box4">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, neque?
+      Architecto harum aperiam explicabo sint hic cum eum modi maiores!
+    </div>
+  </body>
+</html>
