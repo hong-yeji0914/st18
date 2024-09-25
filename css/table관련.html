@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table관련</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        .table-wrap{
+            width: 600px;
+            margin: 20px auto;
+            background-color: #ccc;
+        }
+        /* 
+        편의를 위해서
+        table을 block 레벨로 감싸요
+        table width:너비;
+        table,th,td에 테두리는
+
+        border-top:너비 색상 스타일; 
+        border-bottom:너비 색상 스타일; 
+        border-left:너비 색상 스타일; 
+        border-right:너비 색상 스타일; 
+        */
+
+        table.table-1{
+            border: 1px solid #000;
+            border-collapse: collapse;
+            /* border-collapse: separate; */
+            width: 100%;
+            /* padding: 20px; */
+        }
+        .table-1 th,
+        .table-1 td{
+            border: 1px solid #f00;
+            width: 100px;
+        }
+
+        /* 테이블이 너비와 테두리 지정 */
+        table.table-2{
+            width: 100%;
+            border-collapse: collapse; /* 테이블과 셀의 테두리를 같이함 */
+            table-layout: fixed;
+            border: 1px solid #f00; /* 테스트 후 삭제 */
+        }
+        .table-2 th,
+        .table-2 td{
+            border: 1px solid #000; /* 테스트 후 삭제 */
+        }
+        /* th,td의 너비를 nth:child 가상클래스로 선택하여 지정 */
+
+        .table-2 th:nth-child(1),
+        .table-2 td:nth-child(1){
+            width: 100px;
+        }
+        .table-2 th:nth-child(2),
+        .table-2 td:nth-child(2){
+            width: auto;
+        }
+        .table-2 th:nth-child(3),
+        .table-2 td:nth-child(3){
+            width: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="table-wrap">
+        <table class="table-1">
+            <tr>
+                <th>data1</th>
+                <th>data2</th>
+                <th>data3</th>
+            </tr>
+            <tr>
+                <td>data1</td>
+                <td>data2</td>
+                <td>data3</td>
+            </tr>
+        </table>
+    </div>
+    <div class="table-wrap">
+        <table class="table-2">
+            <tr>
+                <th>data1</th>
+                <th>data2</th>
+                <th>data3</th>
+            </tr>
+            <tr>
+                <td>data1</td>
+                <td>data2</td>
+                <td>data3</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
