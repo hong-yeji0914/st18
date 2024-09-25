@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목록관련css</title>
+    <style>
+        ul,ol{border: 1px solid #000;}
+        li{
+            border: 1px solid #f00;
+            margin: 10px;
+        }
+        ul{list-style: upper-alpha;}
+        ol{list-style: circle;}
+
+        /* background-image로 list-style-type 대신 넣기 */
+        ul.list-style-example{
+            list-style: none;
+            padding: 0;
+        }
+        ul.list-style-example li{
+            padding-left: 2.5rem;
+            /* list-style 대신 이미지를 사용하기 위해선 padding-left 확보해야 한다 */
+            background-image: url(background/images/img1.png);
+            background-size: auto 22px;
+            background-repeat: no-repeat;
+            background-position: 10px center;
+            background-color: #ccc;
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+    <ol>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ol>
+
+    <ul class="list-style-example">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+</body>
+</html>
