@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position-sticky2</title>
+    <style>
+        /* reset */
+        *{margin: 0; padding: 0;}
+
+        /* common */
+        /* .clearfix{overflow: hidden;} */
+        .clearfix::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        /* layout */
+        .wrap{}
+        header{
+            background-color: #ccc;
+            min-height: 150px;
+        }
+        .main{}
+        /* 1단(column) */
+        .main .left-lnb{
+            float: left;
+            background-color: #ff6;
+            /* float르르 지정한 요소는 너비를 지정해줘야 깔끔하게 사용가능하다 */
+            width: 150px;
+            min-height: 200px;
+        }
+        /* 2단(column) */
+        .main .content{
+            float: left;
+            background-color: #6ff;
+            width: calc(100% - (150px + 150px + 40px + 40px));
+            margin-left: 40px;
+            margin-right: 40px;
+            height: 1500px;
+        }
+        /* 3단(column) */
+        /* 상황 01 . 우측배너를 스크롤 시에도 고정시키고 싶다. */
+        .main .banner{
+            float: left;
+            position: sticky;
+            top: 20;
+            /* sticky는 부모요소 중 속성에 auto scroll hidden이 명령되어 있으면 적용되지 않음*/
+            background-color: #f6f;
+            width: 150px;
+            min-height: 200px;
+        }
+        footer{
+            background-color: #ccc;
+            min-height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>header</header>
+        <main class="main clearfix">
+            <div class="left-lnb">왼쪽메뉴</div>
+            <div class="content">본문내용</div>
+            <div class="banner">배너</div>
+        </main>
+        <footer>footer</footer>
+    </div>
+</body>
+</html>
