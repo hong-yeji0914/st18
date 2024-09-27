@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 /* reset */
 *{margin: 0; padding: 0; box-sizing: border-box;}
+ul,ol,li{list-style: none;}
 
 /* 테스트 화면용 */
 body{
@@ -12,6 +13,13 @@ body{
     margin: 50px;
 }
 
+/* 갤러리 레이아웃 float */
+.card__list{}
+.card__list ul.card__wrap{}
+.card__list li.card__item{}
+.card__list div.card{}
+
+/* card design */
 .card{
     width: 300px;
     border: 1px solid #efefef;
