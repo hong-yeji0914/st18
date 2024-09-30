@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지크기지정 종횡비를 유지한 반응형.html</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        .wrap{
+            margin: 20px;
+            background-color: #ff6;
+            border: 1px solid #f00;
+        }
+
+        /* 
+        .media-wrap : 이미지의 너비를 결정 (width:300px)
+        */
+        .media-box{
+            width: 300px;
+            background-color: #6ff;
+            border: 1px solid #00f;
+        }
+
+        /* 
+        .img-wrap : 이미지의 높이를 결정
+        높이를 padding-top으로 지정
+        이미지의 세로/가로(나누기) 비율로 지정
+        */
+        .img-wrap{
+            /* padding-top: 100%; -> 가로세로 비율을 정비율로 가져간다는 뜻 */
+            /* padding-top: 75%; -> 4:3 3/4의 결과값 */
+            /* padding-top: 56.25% -> 16:9 9/16의 결과값; */
+            /* padding-top: calc(이미지의 세로 높이 / 이미지의 가로 높이); */
+            padding-top: calc(100%*(1131/1900));
+            /* padding-top: 59.52%; */
+
+            position: relative; /* .img-wrap img.img (absolute)의 기준요소가 되기 위해 */
+        }
+
+        /* 
+        이미지를 position:absolute;
+        */
+        .img-wrap img.img{
+            position: absolute; /* 기준요소 설정*/
+            width: 100%; /* 기준요소-콘텐츠 영역의 수평 크기를 따라라 */
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="media-box">
+            <!-- 종횡비를 유지하기 위해서 img의 부모요소 추가 -->
+            <div class="img-wrap">
+                <img class="img" src="./background/images/bg.jpg" alt="">
+            </div>
+        </div> <!-- //media-wrap-->
+    </div>
+    <!-- <div class="box">box</div> -->
+</body>
+</html>
