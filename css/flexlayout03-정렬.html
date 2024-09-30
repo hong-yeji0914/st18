@@ -22,22 +22,54 @@
 
 
         /* 
-        1. flex container 선언
-        2. flex item의 방향 결정
-        3. flex item의 확장수축 크기 결정
+        1. flex container 선언 : flex-container
+        2. flex item의 방향 결정 : flex-container
+        3. flex item의 확장수축 크기 결정 : flex-item
         4. 만약 flex item의 크기 총합이 부모(flex container)의 크기보다 클 경우 wrap(줄바꿈)할지 판단
-        5. flex container의 정렬 판단
-        6. flex item의 정렬 판단
+        5. flex container를 부모요소 내 정렬 판단
+        (일반적인 block레벨 inline레벨 정렬하는 것과 같이)
+        6. flex item의 정렬 판단 (정렬은 container > item의 합)
+            6-1. 주축의 방향: container 내의 모든 아이템
+            => flex-container에 justify-content
+            6-2. 교차축의 방향: container 내의 모든 아이템
+            => container를 교차축의 크기를 (width/height) 지정
+            6-3. 개별아이템 정렬: 모든 아이템
         */
 
-        /* 
-        1. flex container 선언
-        -> flex container 
-        */
+
         .flex-container{
+            width: 70%;
+            margin: auto; /*5*/
             display: flex; /*1*/
             flex-direction: row; /*2*/
             flex-wrap: nowrap; /*4*/
+
+            /* justify-content: flex-start; 6-1 */
+            /* justify-content: flex-end; 6-1 */
+            
+            /* justify-content: space-between; */
+            /* 
+            양끝정렬: 아이템 사이는 균등한 여백을 갖도록 함
+            컨테이너 경계선과 있는 아이템은 여백 X
+            */
+
+            /* justify-content: space-around; */
+            /* 
+            양끝정렬: 아이템 사이는 균등한 여백을 갖도록 함 (경계여백*2)
+            컨테이너 경계선과 있는 아이템은 여백 O
+            */
+
+            /* justify-content: space-evenly; */
+            /* 
+            양끝정렬: 아이템 사이는 균등한 여백을 갖도록 함
+            컨테이너 경계선과 있는 아이템은 여백 O
+            */
+
+            height: 300px; /* 6-2를 위한 준비 */
+
+            /* align-items: stretch; 기본값 */
+            align-items: center; 
+            /* (flex-direction:row; => 6-2. 서로다른 수직 높이 가진 요소를 정렬 */
         }
 
         /* 
@@ -50,6 +82,10 @@
             flex-shrink: 0;
             flex-basis: auto; */
             flex: none;
+        }
+
+        .item2{
+            align-self: flex-start;
         }
 
     </style>
