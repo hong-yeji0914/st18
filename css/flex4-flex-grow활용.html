@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex4-flex-grow활용.html</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        .wrap{}
+        .header{
+            padding: 1rem 0;
+            background-color: #ccc;
+        }
+
+        .header .logo{
+            width: 100px;
+            height: 100px;
+            background-color: #ff6;
+        }
+
+        .header .gnb{
+            width: 200px;
+            padding: 0.5rem 0;
+            background-color: #F6F;
+        }
+
+        .header .toparea-stat{
+            width: 150px;
+            padding: 0.5rem 0;
+            background-color: #6ff;
+        }
+        
+        /* flex 관련 선언 */
+        /* 
+        1,2,3 item의 크기는 본인 크기 유지
+        아이템을 균등배포
+        수직에서 가운데 (주축-수평/교차축-수직)
+        교차축 align-items(1줄) / align-content(2줄이상)
+        */
+        
+        .flex-container{
+            display: flex;
+            /* flex-direction: row; */
+            /* flex-wrap: nowrap; */
+            justify-content: space-between;
+            align-items: center;
+            /* align-item:stretch 일 경우, 아이템은 container크기만큼 늘어남*/
+        }
+        .item{
+            flex: none;
+            /* 
+            flex-grow: 0; 주축 여유공간이 있다면 확장
+            flex-shrink: 0; 주축 여유공간이 부족하다면 수축
+            flex-basis: auto; 
+            */
+        }
+
+        .item.gnb{
+            flex-grow: 1;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header class="header flex-container">
+            <h1 class="logo item">logo</h1>
+            <nav class="gnb item">네비게이션</nav>
+            <div class="toparea-stat item">기능메뉴</div>
+        </header>
+        1. flex container 선언 : flex-container <br>
+        2. flex item의 방향 결정 : flex-container <br>
+        3. flex item의 확장수축 크기 결정 : flex-item <br>
+        4. 만약 flex item의 크기 총합이 부모(flex container)의 크기보다 클 경우 wrap(줄바꿈)할지 판단 <br>
+        5. flex container를 부모요소 내 정렬 판단 <br>
+        (일반적인 block레벨 inline레벨 정렬하는 것과 같이) <br>
+        6. flex item의 정렬 판단 (정렬은 container > item의 합) <br>
+            6-1. 주축의 방향: container 내의 모든 아이템 <br>
+            => flex-container에 justify-content <br>
+            6-2. 교차축의 방향: container 내의 모든 아이템 <br>
+            => container를 교차축의 크기를 (width/height) 지정 <br>
+            6-3. 개별아이템 정렬: 모든 아이템 <br>
+    </div>
+</body>
+</html>
