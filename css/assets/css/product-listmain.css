@@ -39,6 +39,9 @@ body, code {
 .ec-base-product .prdList li{
     border: 1px solid #000; /* test */
     display: inline-block; /* li 옆에 다른 li가 오도록 하기 위해 (inline-block은 불필요한 여백이 생길 수 있다 */
+    /* .ec-base-product .prdList 의 여백 제거를 위해 글자크기와 높이 0으로 해둔 것을 되돌려놓음 (글자가 보이도록 하기 위해서) */
+    font-size: 13px;
+    line-height: 1;
 }
 
 /* 메인분류 상품목록 단처리 */
@@ -121,3 +124,59 @@ width: 100%;
     cursor: pointer;
     font-weight: normal; /* strong 태그 요소의 기본 bold 타입 제거 */
 }
+
+
+
+
+
+
+/* 
+<div class="icon__box">
+    <span class="wish">
+       <img src="/web/upload/icon_202201241816315200.png">
+       wish
+    </span>
+     <span class="cart">
+         <img src="/web/upload/icon_202201241812549900.png">
+         cart
+    </span>
+    <span class="option">
+        <a onclick="optionPreview(this,'listmain-1',23,'T')" "="">
+           <img src="/web/upload/icon_202201241816160100.png">
+        option
+        </a>
+    </span> 
+</div>
+*/
+.ec-base-product .prdList .icon__box {
+    border: 1px solid #0f0;
+    position: absolute; /* 기준요소는 .ec-base-product .prdList .thumbnail 여기에! */
+    left: 0; top: 50%;
+    transform: translate(0, -50%); /* absloute에서 수직 가운데 넣는 방법 */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+.ec-base-product .prdList .icon__box >span {
+    display: block;
+    position: relative; /* .ec-base-product .prdList .icon__box >span img 의 기준요소가 됨 */
+    border: 1px solid #999;
+    font-weight: 500px;
+    padding: 10px 15px;
+    margin: 0 4px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    
+}
+.ec-base-product .prdList .icon__box >span.wish {}
+.ec-base-product .prdList .icon__box >span.cart {}
+.ec-base-product .prdList .icon__box >span.option {}
+.ec-base-product .prdList .icon__box >span img {
+    position: absolute;
+    left: 0; top: 0; width: 100%; height: 100%;
+    opacity: 0;
+}
+.ec-base-product .prdList .icon__box >span.wish img {}
+.ec-base-product .prdList .icon__box >span.cart img {}
+.ec-base-product .prdList .icon__box >span.option img {}
