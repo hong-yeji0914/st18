@@ -31,9 +31,14 @@ body, code {
 */
 
 .ec-base-product{}
-.ec-base-product .prdList{}
+.ec-base-product .prdList{
+    /* li를 display: inline-block;으로 설정할 때 생기는 여백을 없애기 위해 */
+    font-size: 0;
+    line-height: 0;
+}
 .ec-base-product .prdList li{
     border: 1px solid #000; /* test */
+    display: inline-block; /* li 옆에 다른 li가 오도록 하기 위해 (inline-block은 불필요한 여백이 생길 수 있다 */
 }
 
 /* 메인분류 상품목록 단처리 */
@@ -41,5 +46,60 @@ body, code {
 .ec-base-product .prdList.grid3 li{width: 33.33%;}
 .ec-base-product .prdList.grid4 li{width: 25%;}
 .ec-base-product .prdList.grid5 li{width: 20%;}
-.ec-base-product .prdList .prdList__item{}
-.ec-base-product .prdList .thumbnail{}
+
+.ec-base-product .prdList .prdList__item{
+    margin: 0 10px;
+}
+
+/*  
+<div class="prdList__item">
+    <div class="thumbnail">
+        <a href=""><img src="./assets/images/상품이미지.png" alt=""></a>
+        <div class="likeButton likePrd"> 
+*/
+/* 
+이미지 너비 고정? 이미지의 너비가 부모의 너비를 따르도록하는 방법 *반응형 이미지* : .ec-base-product .prdList .thumbnail>a>img
+1. 원래 이미지 보다 커지지 않으면서 부모의 너비를 따르도록 하는 방법
+max-width: 100%;
+2. 무조건 부모의 너비를 따르도록 하는 방법
+width: 100%;
+*/
+.ec-base-product .prdList .thumbnail{
+    border: 1px solid #f00; /* test */
+    position: relative; /* absolute의 기준요소 */
+}
+.ec-base-product .prdList .thumbnail>a{}
+.ec-base-product .prdList .thumbnail>a>img{
+    /* max-width: 100%; */
+    width: 100%;
+}
+
+
+/* 
+ <div class="likeButton likePrd">
+    <button>
+        <img src="" alt="">
+        <strong>
+            <span class="likeProCount"></span>
+        </strong>
+    </button>
+</div>
+*/
+
+/* 
+.likeButton 에 요구된 기능 조건
+1) 기존의 likeButton에 지정된 이미지는 표시하지 않고, => .likeButton img (보이지 않게 하는 방법 display:none;)
+2) 그 자리에 Like 텍스트를 표시할 것
+3) Like 텍스트 밑에 좋아요 누적 수가 표시될 것 => .likeButton strong
+*/
+.ec-base-product .prdList .thumbnail .likeButton{
+    border: 1px solid #00f; /* test */
+    position: absolute; /* 기준요소 설정 필요함 */
+    left: 0px;
+    top: 0px;
+}
+.ec-base-product .prdList .thumbnail .likeButton button{}
+.ec-base-product .prdList .thumbnail .likeButton img{
+    display: none;
+}
+.ec-base-product .prdList .thumbnail .likeButton strong{}
