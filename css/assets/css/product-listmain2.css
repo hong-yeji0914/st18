@@ -22,15 +22,13 @@ body, code {
 
 /* product-listmain */
 
-/* html 구조
-<div class="ec-base-product xans-product-listmain">
-    <ul class="prdList grid4"> : 몇단으로 할 건지에 대한 클래스명
-        <li>
-            <div class="prdList__item">
-                 <div class="thumbnail"> 
+/* 
+커먼셀렉트를 
+1) 뷰티의 베스트 아이템처럼 변경 
+: 관리자 설정과 상관 없이 .icon_box 나오지 않도록
+: .icon_box 아래에서 위로 자연스럽게 표시
+2) 마일드의 마우스 오버 시 박스 그림자 표시되도록 변경 : 썸네일 Box-shadow 
 */
-
-/* 커먼셀렉트 > 뷰티 bestitem+마일드 hover 시 box-shadow 표시 */
 
 .ec-base-product{}
 .ec-base-product .prdList{
@@ -38,12 +36,17 @@ body, code {
     font-size: 0;
     line-height: 0;
 }
-.ec-base-product .prdList li{
+/* 
+.ec-base-product .prdList li : prdList 후손 중 모든 li ?
+.ec-base-product .prdList > li prdList 자식 중 모든 li ? 
+*/
+.ec-base-product .prdList > li{
     border: 1px solid #000; /* test */
     display: inline-block; /* li 옆에 다른 li가 오도록 하기 위해 (inline-block은 불필요한 여백이 생길 수 있다 */
     /* .ec-base-product .prdList 의 여백 제거를 위해 글자크기와 높이 0으로 해둔 것을 되돌려놓음 (글자가 보이도록 하기 위해서) */
     font-size: 13px;
     line-height: 1;
+    overflow: hidden;
 }
 
 /* 메인분류 상품목록 단처리 */
@@ -53,50 +56,35 @@ body, code {
 .ec-base-product .prdList.grid5 li{width: 20%;}
 
 .ec-base-product .prdList .prdList__item{
-    margin: 0 10px;
+    margin: 10px;
+    position: relative; /* .description의 기준요소 */
 }
 
-/*  
-<div class="prdList__item">
-    <div class="thumbnail">
-        <a href=""><img src="./assets/images/상품이미지.png" alt=""></a>
-        <div class="likeButton likePrd"> 
-*/
-/* 
-이미지 너비 고정? 이미지의 너비가 부모의 너비를 따르도록하는 방법 *반응형 이미지* : .ec-base-product .prdList .thumbnail>a>img
-1. 원래 이미지 보다 커지지 않으면서 부모의 너비를 따르도록 하는 방법
-max-width: 100%;
-2. 무조건 부모의 너비를 따르도록 하는 방법
-width: 100%;
-*/
+
+/* thumbnail */
 .ec-base-product .prdList .thumbnail{
     border: 1px solid #f00; /* test */
     position: relative; /* absolute의 기준요소 */
 }
-.ec-base-product .prdList .thumbnail>a{}
+
+/* 
+hover 시 box-shadow 
+*/
+.ec-base-product .prdList .prdList__item:hover .thumbnail{
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.5);
+}
+
+.ec-base-product .prdList .thumbnail>a{
+    display: block;
+}
 .ec-base-product .prdList .thumbnail>a>img{
+    display: block; /*썸네일 여백 제거*/
     /* max-width: 100%; */
     width: 100%;
 }
 
 
-/* 
- <div class="likeButton likePrd">
-    <button>
-        <img src="" alt="">
-        <strong>
-            <span class="likeProCount"></span>
-        </strong>
-    </button>
-</div>
-*/
-
-/* 
-.likeButton 에 요구된 기능 조건
-1) 기존의 likeButton에 지정된 이미지는 표시하지 않고, => .likeButton img (보이지 않게 하는 방법 display:none;)
-2) 그 자리에 Like 텍스트를 표시할 것
-3) Like 텍스트 밑에 좋아요 누적 수가 표시될 것 => .likeButton strong
-*/
+/* likebutton */
 .ec-base-product .prdList .thumbnail .likeButton::before{
     content: "Like";
     font-size: 12px;
@@ -128,32 +116,17 @@ width: 100%;
 }
 
 
-
-
-
+/* icon_box */
 
 /* 
-<div class="icon__box">
-    <span class="wish">
-       <img src="/web/upload/icon_202201241816315200.png">
-       wish
-    </span>
-     <span class="cart">
-         <img src="/web/upload/icon_202201241812549900.png">
-         cart
-    </span>
-    <span class="option">
-        <a onclick="optionPreview(this,'listmain-1',23,'T')" "="">
-           <img src="/web/upload/icon_202201241816160100.png">
-        option
-        </a>
-    </span> 
-</div>
+뷰티 베스트 아이템 따라잡기!
+: 관리자 설정과 상관없이 .icon_box 표시하지 않음 (화면에 표시하지 않음)
+1. display:none; => 스크린리더 X
+2. opacity:0; => 스크린리더 O
+3. visibility:hidden; => 스크린리더 O
 */
 
-
 .ec-base-product .prdList .icon__box {
-    border: 1px solid #0f0;
     position: absolute; /* 기준요소는 .ec-base-product .prdList .thumbnail 여기에! */
     left: 0; top: 50%;
     transform: translate(0, -50%); /* absloute에서 수직 가운데 넣는 방법 */
@@ -161,27 +134,97 @@ width: 100%;
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    opacity: 0;
     visibility: hidden;
+    border: 1px solid #0f0; /* test */
+}
+/* .ec-base-product .prdList .icon__box:hover{} */
+.ec-base-product .prdList .prdList__item:hover .icon__box {
+    opacity: 1;
 }
 .ec-base-product .prdList .icon__box >span {
+    box-sizing: border-box;
     display: block;
     position: relative; /* .ec-base-product .prdList .icon__box >span img 의 기준요소가 됨 */
     border: 1px solid #999;
-    font-weight: 500px;
+    border-radius: 10px;
     padding: 10px 15px;
+    min-width: 74px;
     margin: 0 4px;
     background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    
+    font-weight: 500;
+    font-family: "Noto Sans KR",sans serif;
+    text-align: center;
+    cursor: pointer;
 }
-.ec-base-product .prdList .icon__box >span.wish {}
-.ec-base-product .prdList .icon__box >span.cart {}
-.ec-base-product .prdList .icon__box >span.option {}
+
+/* 기능요구
+mouseout(mouseleave): 회색 검정글
+mouseover(hover): 테두리 검정 배경, 흰색 글
+ */
+ .ec-base-product .prdList .icon__box >span:hover{
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+ }
+
 .ec-base-product .prdList .icon__box >span img {
     position: absolute;
     left: 0; top: 0; width: 100%; height: 100%;
     opacity: 0;
 }
-.ec-base-product .prdList .icon__box >span.wish img {}
-.ec-base-product .prdList .icon__box >span.cart img {}
-.ec-base-product .prdList .icon__box >span.option img {}
+
+
+/* 할인율 .sale_box */
+.ec-base-product .prdList .sale_box {
+    position: absolute;
+    right: 5%; top: 4%;
+    width: 50px; height: 50px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* description */
+/* 상품명은 반드시 빨강 15px 관리자화면 설정 무시 */
+
+/* 
+.description이 .thumbnail 위로 겹쳐져서 표시되도록!
+*/
+.ec-base-product .prdList .description{
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 18px;
+    /* 여기서부터 수정 내용 추가 */
+    position: absolute;
+    left: 0; bottom: 0; top: auto;
+    transform: translate(0, 100%); /* 본인의 크기만큼(100%) y축으로 내려가랏! */
+    width: 100%;
+    padding: 5% 5% 3% 5%;
+    background-color: rgba(255,255,255,0.5);
+    box-sizing: border-box;
+    border: 1px solid #00f; /* test */
+    transition: transform 0.1s;
+}
+/* .description 위치 변경 */
+.ec-base-product .prdList .prdList__item:hover .description{
+    transform: translate(0 , 0);
+    transition: transform 0.3s;
+}
+
+.ec-base-product .prdList .description .name a{
+    text-decoration: none;
+}
+/* inline style 무시할 때 */
+.ec-base-product .prdList .description .name .title+span{
+  color: #f00 !important;  
+  font-size: 15px !important;
+}
+/* 인접형제 구분자 */
+  .ec-base-product .prdList .description .spec{}
+.ec-base-product .prdList .description .spec li{}
+.ec-base-product .prdList .description .icon{}
+.ec-base-product .prdList .description .icon img{}
