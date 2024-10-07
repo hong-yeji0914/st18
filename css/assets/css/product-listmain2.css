@@ -22,12 +22,12 @@ body, code {
 
 /* product-listmain */
 
-/* html 구조
-<div class="ec-base-product xans-product-listmain">
-    <ul class="prdList grid4"> : 몇단으로 할 건지에 대한 클래스명
-        <li>
-            <div class="prdList__item">
-                 <div class="thumbnail"> 
+/* 
+커먼셀렉트를 
+1) 뷰티의 베스트 아이템처럼 변경 
+: 관리자 설정과 상관 없이 .icon_box 나오지 않도록
+: .icon_box 아래에서 위로 자연스럽게 표시
+2) 마일드의 마우스 오버 시 박스 그림자 표시되도록 변경 : 썸네일 Box-shadow 
 */
 
 .ec-base-product{}
@@ -36,12 +36,17 @@ body, code {
     font-size: 0;
     line-height: 0;
 }
-.ec-base-product .prdList li{
+/* 
+.ec-base-product .prdList li : prdList 후손 중 모든 li ?
+.ec-base-product .prdList > li prdList 자식 중 모든 li ? 
+*/
+.ec-base-product .prdList > li{
     border: 1px solid #000; /* test */
     display: inline-block; /* li 옆에 다른 li가 오도록 하기 위해 (inline-block은 불필요한 여백이 생길 수 있다 */
     /* .ec-base-product .prdList 의 여백 제거를 위해 글자크기와 높이 0으로 해둔 것을 되돌려놓음 (글자가 보이도록 하기 위해서) */
     font-size: 13px;
     line-height: 1;
+    overflow: hidden;
 }
 
 /* 메인분류 상품목록 단처리 */
@@ -51,7 +56,8 @@ body, code {
 .ec-base-product .prdList.grid5 li{width: 20%;}
 
 .ec-base-product .prdList .prdList__item{
-    margin: 0 10px;
+    margin: 10px;
+    position: relative; /* .description의 기준요소 */
 }
 
 
@@ -60,6 +66,14 @@ body, code {
     border: 1px solid #f00; /* test */
     position: relative; /* absolute의 기준요소 */
 }
+
+/* 
+hover 시 box-shadow 
+*/
+.ec-base-product .prdList .prdList__item:hover .thumbnail{
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.5);
+}
+
 .ec-base-product .prdList .thumbnail>a{
     display: block;
 }
@@ -103,8 +117,16 @@ body, code {
 
 
 /* icon_box */
+
+/* 
+뷰티 베스트 아이템 따라잡기!
+: 관리자 설정과 상관없이 .icon_box 표시하지 않음 (화면에 표시하지 않음)
+1. display:none; => 스크린리더 X
+2. opacity:0; => 스크린리더 O
+3. visibility:hidden; => 스크린리더 O
+*/
+
 .ec-base-product .prdList .icon__box {
-    border: 1px solid #0f0;
     position: absolute; /* 기준요소는 .ec-base-product .prdList .thumbnail 여기에! */
     left: 0; top: 50%;
     transform: translate(0, -50%); /* absloute에서 수직 가운데 넣는 방법 */
@@ -113,6 +135,8 @@ body, code {
     justify-content: center;
     width: 100%;
     opacity: 0;
+    visibility: hidden;
+    border: 1px solid #0f0; /* test */
 }
 /* .ec-base-product .prdList .icon__box:hover{} */
 .ec-base-product .prdList .prdList__item:hover .icon__box {
@@ -166,11 +190,31 @@ mouseover(hover): 테두리 검정 배경, 흰색 글
 
 /* description */
 /* 상품명은 반드시 빨강 15px 관리자화면 설정 무시 */
+
+/* 
+.description이 .thumbnail 위로 겹쳐져서 표시되도록!
+*/
 .ec-base-product .prdList .description{
     margin-top: 20px;
     font-size: 12px;
     line-height: 18px;
+    /* 여기서부터 수정 내용 추가 */
+    position: absolute;
+    left: 0; bottom: 0; top: auto;
+    transform: translate(0, 100%); /* 본인의 크기만큼(100%) y축으로 내려가랏! */
+    width: 100%;
+    padding: 5% 5% 3% 5%;
+    background-color: rgba(255,255,255,0.5);
+    box-sizing: border-box;
+    border: 1px solid #00f; /* test */
+    transition: transform 0.1s;
 }
+/* .description 위치 변경 */
+.ec-base-product .prdList .prdList__item:hover .description{
+    transform: translate(0 , 0);
+    transition: transform 0.3s;
+}
+
 .ec-base-product .prdList .description .name a{
     text-decoration: none;
 }
