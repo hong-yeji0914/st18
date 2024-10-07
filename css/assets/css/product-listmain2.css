@@ -30,6 +30,8 @@ body, code {
                  <div class="thumbnail"> 
 */
 
+/* 커먼셀렉트 > 뷰티 bestitem+마일드 hover 시 box-shadow 표시 */
+
 .ec-base-product{}
 .ec-base-product .prdList{
     /* li를 display: inline-block;으로 설정할 때 생기는 여백을 없애기 위해 */
@@ -148,6 +150,8 @@ width: 100%;
     </span> 
 </div>
 */
+
+
 .ec-base-product .prdList .icon__box {
     border: 1px solid #0f0;
     position: absolute; /* 기준요소는 .ec-base-product .prdList .thumbnail 여기에! */
@@ -157,6 +161,7 @@ width: 100%;
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    visibility: hidden;
 }
 .ec-base-product .prdList .icon__box >span {
     display: block;

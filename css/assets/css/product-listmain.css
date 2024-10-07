@@ -54,47 +54,23 @@ body, code {
     margin: 0 10px;
 }
 
-/*  
-<div class="prdList__item">
-    <div class="thumbnail">
-        <a href=""><img src="./assets/images/상품이미지.png" alt=""></a>
-        <div class="likeButton likePrd"> 
-*/
-/* 
-이미지 너비 고정? 이미지의 너비가 부모의 너비를 따르도록하는 방법 *반응형 이미지* : .ec-base-product .prdList .thumbnail>a>img
-1. 원래 이미지 보다 커지지 않으면서 부모의 너비를 따르도록 하는 방법
-max-width: 100%;
-2. 무조건 부모의 너비를 따르도록 하는 방법
-width: 100%;
-*/
+
+/* thumbnail */
 .ec-base-product .prdList .thumbnail{
     border: 1px solid #f00; /* test */
     position: relative; /* absolute의 기준요소 */
 }
-.ec-base-product .prdList .thumbnail>a{}
+.ec-base-product .prdList .thumbnail>a{
+    display: block;
+}
 .ec-base-product .prdList .thumbnail>a>img{
+    display: block; /*썸네일 여백 제거*/
     /* max-width: 100%; */
     width: 100%;
 }
 
 
-/* 
- <div class="likeButton likePrd">
-    <button>
-        <img src="" alt="">
-        <strong>
-            <span class="likeProCount"></span>
-        </strong>
-    </button>
-</div>
-*/
-
-/* 
-.likeButton 에 요구된 기능 조건
-1) 기존의 likeButton에 지정된 이미지는 표시하지 않고, => .likeButton img (보이지 않게 하는 방법 display:none;)
-2) 그 자리에 Like 텍스트를 표시할 것
-3) Like 텍스트 밑에 좋아요 누적 수가 표시될 것 => .likeButton strong
-*/
+/* likebutton */
 .ec-base-product .prdList .thumbnail .likeButton::before{
     content: "Like";
     font-size: 12px;
@@ -126,28 +102,7 @@ width: 100%;
 }
 
 
-
-
-
-
-/* 
-<div class="icon__box">
-    <span class="wish">
-       <img src="/web/upload/icon_202201241816315200.png">
-       wish
-    </span>
-     <span class="cart">
-         <img src="/web/upload/icon_202201241812549900.png">
-         cart
-    </span>
-    <span class="option">
-        <a onclick="optionPreview(this,'listmain-1',23,'T')" "="">
-           <img src="/web/upload/icon_202201241816160100.png">
-        option
-        </a>
-    </span> 
-</div>
-*/
+/* icon_box */
 .ec-base-product .prdList .icon__box {
     border: 1px solid #0f0;
     position: absolute; /* 기준요소는 .ec-base-product .prdList .thumbnail 여기에! */
@@ -157,26 +112,75 @@ width: 100%;
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    opacity: 0;
+}
+/* .ec-base-product .prdList .icon__box:hover{} */
+.ec-base-product .prdList .prdList__item:hover .icon__box {
+    opacity: 1;
 }
 .ec-base-product .prdList .icon__box >span {
+    box-sizing: border-box;
     display: block;
     position: relative; /* .ec-base-product .prdList .icon__box >span img 의 기준요소가 됨 */
     border: 1px solid #999;
-    font-weight: 500px;
+    border-radius: 10px;
     padding: 10px 15px;
+    min-width: 74px;
     margin: 0 4px;
     background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    
+    font-weight: 500;
+    font-family: "Noto Sans KR",sans serif;
+    text-align: center;
+    cursor: pointer;
 }
-.ec-base-product .prdList .icon__box >span.wish {}
-.ec-base-product .prdList .icon__box >span.cart {}
-.ec-base-product .prdList .icon__box >span.option {}
+
+/* 기능요구
+mouseout(mouseleave): 회색 검정글
+mouseover(hover): 테두리 검정 배경, 흰색 글
+ */
+ .ec-base-product .prdList .icon__box >span:hover{
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+ }
+
 .ec-base-product .prdList .icon__box >span img {
     position: absolute;
     left: 0; top: 0; width: 100%; height: 100%;
     opacity: 0;
 }
-.ec-base-product .prdList .icon__box >span.wish img {}
-.ec-base-product .prdList .icon__box >span.cart img {}
-.ec-base-product .prdList .icon__box >span.option img {}
+
+
+/* 할인율 .sale_box */
+.ec-base-product .prdList .sale_box {
+    position: absolute;
+    right: 5%; top: 4%;
+    width: 50px; height: 50px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* description */
+/* 상품명은 반드시 빨강 15px 관리자화면 설정 무시 */
+.ec-base-product .prdList .description{
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 18px;
+}
+.ec-base-product .prdList .description .name a{
+    text-decoration: none;
+}
+/* inline style 무시할 때 */
+.ec-base-product .prdList .description .name .title+span{
+  color: #f00 !important;  
+  font-size: 15px !important;
+}
+/* 인접형제 구분자 */
+  .ec-base-product .prdList .description .spec{}
+.ec-base-product .prdList .description .spec li{}
+.ec-base-product .prdList .description .icon{}
+.ec-base-product .prdList .description .icon img{}
