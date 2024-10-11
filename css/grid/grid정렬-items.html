@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>grid정렬-content</title>
+    <title>grid정렬-items</title>
     <style>
         *{margin: 0; padding: 0; box-sizing: border-box;}
         .wrap{margin: 20px;}
@@ -16,36 +16,27 @@
             text-align: center;
         }
 
-        /*
-         grid 
-
-         1) 그리드 선언
-         2) 행 수/크기 , 열 수/크기
-         3) 만약 행이나 열 2번 지정한 행/열 수를 초과한 게 있다면 초과한 행/열 크기 (뭔솔?)
-         4) 그리드 아이템이 들어가는 순서 결정
-         5) 그리드 셀과 셀 사이의 여백 결정
-         6) 그리드 컨테이너 내 아이템의 수직/수평 정렬 고려
-         7) 그리드 영역 내 아이템 배치
-         8) 정렬
-
-         */
-
          .grid-container{
             display: grid;
-            grid-template-columns: repeat(4, 100px);
             gap: 4px;
-            /* 정렬 */
-            justify-content: space-evenly;
          }
 
+         /* justift-items */
+         .grid-container{
+            grid-template-columns: repeat(4, 100px);
+            justify-items: stretch;
+         }
+
+         /* align-items */
          .container{
             min-height: 350px;
          }
          .grid-container{
-            grid-template-rows: repeat(3, auto);
-            /* grid-auto-rows: minmax(70px, auto); */
-            align-content: stretch;
+            grid-template-rows: repeat(3, 80px);
+            /* align-content: start; */
+            align-items: center;
          }
+
 
          .item:nth-child(1),
          .item:nth-child(5){
