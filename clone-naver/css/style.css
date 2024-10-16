@@ -49,7 +49,7 @@
 }
 .navercorp.main .cont-summary .cont__area.type-b .story{
     order: 2;
-    grid-column: 3/span 2;
+    grid-column: 3/5;
     grid-row: 1/2;
 }
 .navercorp.main .cont-summary .cont__area.type-b .ad{
@@ -198,23 +198,42 @@
     background-size: contain;
   }
 
+  .navercorp.main .cont-summary .story .title{
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    font-size: 26px;
+    line-height: 38px;
+    letter-spacing: -0.8px;
+    margin-top: 10px;
+  }
 
+  /* li.cont__item.recruit */
+.navercorp.main .cont-summary .recruit{
+  background-color: #022be9;
+}
+.navercorp.main .cont-summary .recruit:hover{
+  background-color: #ff5f00;
+}
 
 
 /* .stock */
-.navercorp.main .cont-summary{
-    background-color: #ccc; /*test*/
+/* .navercorp.main .cont-summary{
+    background-color: #ccc; 
 }
 
-.navercorp.main .cont-summary .cont__item{}
+.navercorp.main .cont-summary .cont__item{} */
 
 .navercorp.main .cont-summary .stock a.cont__link{
     padding: 16px;
     color: #1d1d1d;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    height: 100%; */
 }
 .navercorp.main .cont-summary .stock .head{
     display: block;
@@ -229,6 +248,7 @@
     display: block;
     line-height: 26px;
     font-size: 12px;
+    font-weight: 700;
 }
 .navercorp.main .cont-summary .stock .num-info.up::before{
     content: "▲";
@@ -238,13 +258,70 @@
     content: "▼";
     color: #4078ff;
 }
-.navercorp.main .cont-summary .stock .num-info::before{
-    
+
+.navercorp.main .cont-summary .stock .count{
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 54px;
+  letter-spacing: -1.5px;
+  color: var(--default);
 }
 
-.navercorp.main .cont-summary .stock .num-info .num{}
-.navercorp.main .cont-summary .stock .num-info .percent{}
-.navercorp.main .cont-summary .stock .count{}
+.navercorp.main .cont-summary .stock .num-info::after{
+  content: "";
+  position: absolute;
+  width: 32px; height: 36px;
+  right: 20px; bottom: 20px;
+  background: no-repeat center;
+  background-size: contain;
+}
+
+.navercorp.main .cont-summary .stock .num-info.up::after{
+  background-image: var(--ic-arrow-primary);
+}
+.navercorp.main .cont-summary .stock .num-info.down::after{
+  background-image: var(--ic-arrow-down-hover);
+}
+.navercorp.main .cont-summary .stock .num-info.up::after{
+  background-image: var(--ic-arrow-down-hover);
+  transform: rotate(180deg);
+}
+.navercorp.main .cont-summary .stock .num-info.down::after{
+  background-image: var(--ic-arrow-primary);
+  transform: rotate(180deg);
+}
+
+.navercorp.main .cont-summary .cont__item.stock .head,
+.navercorp.main .cont-summary .cont__item.stock .title,
+.navercorp.main .cont-summary .cont__item.stock .desc,
+.navercorp.main .cont-summary .cont__item.ir .head,
+.navercorp.main .cont-summary .cont__item.ir .title,
+.navercorp.main .cont-summary .cont__item.ir .desc {
+  color: var(--default);
+  transition: color .3s;
+}
+.navercorp.main .cont-summary .cont__item.stock:hover .head,
+.navercorp.main .cont-summary .cont__item.stock:hover .title,
+.navercorp.main .cont-summary .cont__item.stock:hover .desc,
+.navercorp.main .cont-summary .cont__item.ir:hover .head,
+.navercorp.main .cont-summary .cont__item.ir:hover .title,
+.navercorp.main .cont-summary .cont__item.ir:hover .desc {
+  color: #ff5f00;
+}
+
+.navercorp.main .cont-summary .ir .cont__link{
+  color: #1d1d1f;
+}
+.navercorp.main .cont-summary .ir .title{
+  margin-top: 6px;
+}
+.navercorp.main .cont-summary .cont__item.ir:hover .outlink::after{
+  background: url(../img/common/ic-outlink-circle-hover.png) no-repeat center;
+  background-size: contain;
+}
+
+
+
 
 
 
@@ -255,6 +332,20 @@
     .navercorp.main .cont-summary .news .thumb-box{
         height: 403px;
       }
+    .navercorp.main .cont-summary .story .category{
+      font-size: 12px;
+      line-height: normal;
+    }
+    .navercorp.main .cont-summary .story .title{
+      font-size: 22px;
+      line-height: 30px;
+      letter-spacing: -0.5px;
+    }
+    .navercorp.main .cont-summary .stock .count{
+      font-size: 34px;
+      line-height: 46px;
+      letter-spacing: normal;
+    }
 }
 /* @media (max-width:1919px) */
 
@@ -276,6 +367,9 @@
     }
     .navercorp.main .cont-summary .cont__area.type-b .cont__list{
         grid-template-rows: unset;
+    }
+    .navercorp.main .cont-summary .cont__area.type-b .cont__item{
+      padding-top: 52.84%;
     }
     .navercorp.main .cont-summary .cont__area.type-b .news{
         padding-top: unset;
@@ -306,8 +400,21 @@
       .navercorp.main .cont-summary .cont__item .outlink{
         right: 12px; bottom: 14px;
       }
+      .navercorp.main .cont-summary .story .category{
+        font-size: 10px;
+      }
+      .navercorp.main .cont-summary .story .title{
+        font-size: 18px;
+      }
+      .navercorp.main .cont-summary .stock .count{
+        font-size: 26px;
+        line-height: 38px;
+        letter-spacing: -0.8px;
+      }
+      .navercorp.main .cont-summary .ir .title{
+        margin-top: 2px;
+      }
 }
-
 
 /* @media (max-width:1599px) */
 
@@ -352,6 +459,16 @@
       .navercorp.main .cont-summary .cont__item .outlink{
         right: 16px; bottom: 16px;
       }
+      .navercorp.main .cont-summary .story .category{
+        font-size: 12px;
+      }
+      
+      .navercorp.main .cont-summary .stock .num-info{
+        font-size: 12px;
+      }
+      .navercorp.main .cont-summary .ir .title{
+        margin-top: 12px;
+      }
 }
 /* @media (max-width:1023px) */
 
@@ -395,6 +512,19 @@
       }
       .navercorp.main .cont-summary .cont__item .outlink{
         display: none;
+      }
+      .navercorp.main .cont-summary .recruit .title{
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .navercorp.main .cont-summary .stock .num-info{
+        line-height: 26px;
+      }
+      .navercorp.main .cont-summary .stock .text-wrap{
+        text-align: right;
+      }
+      .navercorp.main .cont-summary .stock .num-info::after{
+        content: none;
       }
 }
 /* @media (max-width:767px) */
