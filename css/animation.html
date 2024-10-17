@@ -25,17 +25,26 @@
             font-size: 1.5rem;
             animation-name: aniName;
             animation-duration: 1s;
-            animation-iteration-count: infinite;
+            /* animation-iteration-count: infinite; */
+            animation-iteration-count: 2;
         }
 
         @keyframes aniName{
             from{
-                background-color: dodgerblue;
+                /* background-color: dodgerblue; */
                 font-size: 0.5rem;
+            }
+            50%{
+                background-color: deeppink;
+                font-size: 2rem;
+                left: 200px;
+                top: 0;
             }
             to{
                 background-color: deeppink;
                 font-size: 2rem;
+                left: 200px;
+                top: 200px;
             }
         }
     </style>
