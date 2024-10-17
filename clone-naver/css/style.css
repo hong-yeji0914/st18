@@ -332,11 +332,33 @@
   letter-spacing: -1.5px;
   color: var(--default);
 }
-
+.navercorp.main .main-content__title::after{
+  content: "";
+  display: block;
+  width: 53px;
+  height: 46px;
+  margin-top: 37px;
+  background: var(--ic-title-arrow) no-repeat center;
+  background-size: contain;
+}
+.navercorp.main .main-content__title strong{
+  display: block;
+}
+.navercorp.main .main-content__title .time{
+  display: flex;
+  margin-top: 20px;
+  letter-spacing: 0;
+}
 
 
 
 @media (max-width:1919px){
+  .navercorp.main .main-content__inner{
+    max-width: 1600px;
+  }
+  .navercorp.main .cont-summary{
+    padding: 130px 40px 60px;
+  }
     .navercorp.main .cont-summary .cont__area.type-b .cont__list{
         grid-template-rows: 334px 155px 155px;
     }
@@ -357,6 +379,9 @@
       line-height: 46px;
       letter-spacing: normal;
     }
+    .navercorp.main .main-content__title{
+      width: 287px;
+    }
 }
 /* @media (max-width:1919px) */
 
@@ -367,6 +392,9 @@
     .navercorp.main .main-content__inner{
         max-width: none;
         flex-direction: column
+    }
+    .navercorp.main .cont-summary{
+      padding: 92px 30px 0;
     }
     .navercorp.main .cont__area{
         margin-top: 24px;
@@ -425,11 +453,23 @@
       .navercorp.main .cont-summary .ir .title{
         margin-top: 2px;
       }
+      .navercorp.main .main-content__title{
+        width: 100%;
+        font-size: 36px;
+        line-height: 48px;
+        letter-spacing: -1.2px;
+      }
+      .navercorp.main .main-content__title::after{
+        content: none;
+      }
 }
 
 /* @media (max-width:1599px) */
 
 @media (max-width:1023px){
+  .navercorp.main .cont-summary{
+    padding: 110px 30px 0;
+  }
     .navercorp.main .cont-summary .cont__list{
         gap: 12px;
         grid-template-columns: 1fr 1fr;
@@ -484,6 +524,9 @@
 /* @media (max-width:1023px) */
 
 @media (max-width:767px){
+  .navercorp.main .cont-summary{
+    padding: 110px 20px 0;
+  }
     .navercorp.main .cont-summary .cont__list{
         gap: 12px 7px;
     }
@@ -536,6 +579,9 @@
       }
       .navercorp.main .cont-summary .stock .num-info::after{
         content: none;
+      }
+      .navercorp.main .main-content__title{
+        font-size: 34px;
       }
 }
 /* @media (max-width:767px) */
