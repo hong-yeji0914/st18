@@ -1,0 +1,64 @@
+/* 캐주얼 footer */
+#footer .inner{
+  position: relative;
+}
+
+#footer .inner .bt_logo{
+  /* background-color: #f6f; */
+  position: absolute;
+  left: 50%; top: 5%;
+  transform: translate(-50%, -50%);
+}
+
+/* 회사소개 이용약관 개인정보처리방침 이용안내 */
+#footer .inner .bt_util{
+  width: 100%;
+}
+
+
+/* ABOUT US */
+#footer .inner .bt_info{
+  border-right: 1px solid #000;
+  position: relative;
+}
+#footer .inner .bt_info .title{
+  font-size: 25px;
+  text-align: center;
+}
+
+#footer .inner .bt_info .bt_info_list{
+  display: block;
+}
+#footer .inner .bt_info .bt_info_list[data-ez-item="company_name"]{order:1;}
+#footer .inner .bt_info .bt_info_list[data-ez-item="president_name"]{order:1;}
+#footer .inner .bt_info .bt_info_list[data-ez-item="address"]{order:4;}
+#footer .inner .bt_info .bt_info_list[data-ez-item="phone"]{order:3;}
+#footer .inner .bt_info .bt_info_list[data-ez-item="company_regno"]{order:5;}
+#footer .inner .bt_info .bt_info_list[data-ez-item="network_regno"]{order:6;}
+#footer .inner .bt_info .bt_info_list[data-ez-item="cpo_name"]{order:7;}
+
+/* CONTACT US */
+#footer .inner .bt_wrap{
+  justify-content: start;
+}
+#footer .inner .bt_cscenter{
+  margin-left: 200px;
+  padding-right: 150px;
+  border-right: 1px solid #000;
+}
+#footer .inner .bt_cscenter .bt_txt03{
+  
+}
+
+/* FOLLOW US */
+#footer .inner .bt_wrap2{
+  border-top: 0 none;
+  position: absolute;
+  right: 30%;
+}
+#footer .inner .bt_wrap2 .bt_sns a{
+  
+}
+
+
+/* //캐주얼 footer */
