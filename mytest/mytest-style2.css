@@ -1,33 +1,39 @@
 /* 캐주얼 footer */
+#footer{
+  background-color: #F5FAF4;
+}
 #footer .inner{
-  position: relative;
+  padding: 0 0 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 #footer .inner .bt_logo{
-  /* background-color: #f6f; */
-  position: absolute;
-  left: 50%; top: 5%;
-  transform: translate(-50%, -50%);
-}
-
-/* 회사소개 이용약관 개인정보처리방침 이용안내 */
-#footer .inner .bt_util{
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  width: auto;
+  font-size: 30px;
+  border-bottom: 1px solid #000;
+  margin-bottom: auto;
 }
 
 
 /* ABOUT US */
 #footer .inner .bt_info{
   border-right: 1px solid #000;
-  position: relative;
+  /* position: relative; */
+  margin-top: 0;
+  padding-right: 50px;
 }
 #footer .inner .bt_info .title{
+  margin-top: 25px;
   font-size: 25px;
   text-align: center;
 }
 
 #footer .inner .bt_info .bt_info_list{
   display: block;
+  padding: 0 0 50px 0;
 }
 #footer .inner .bt_info .bt_info_list[data-ez-item="company_name"]{order:1;}
 #footer .inner .bt_info .bt_info_list[data-ez-item="president_name"]{order:1;}
@@ -37,28 +43,95 @@
 #footer .inner .bt_info .bt_info_list[data-ez-item="network_regno"]{order:6;}
 #footer .inner .bt_info .bt_info_list[data-ez-item="cpo_name"]{order:7;}
 
+
 /* CONTACT US */
 #footer .inner .bt_wrap{
   justify-content: start;
+  margin: auto;
 }
 #footer .inner .bt_cscenter{
-  margin-left: 200px;
-  padding-right: 150px;
+  margin-left: 100px;
+  padding-right: 100px;
   border-right: 1px solid #000;
 }
-#footer .inner .bt_cscenter .bt_txt03{
-  
+#footer .inner .bt_cscenter .title{
+  margin-top: 25px;
+  font-size: 25px;
+  text-align: center;
+}
+#footer .inner .bt_cscenter .cs_info{
+  padding: 0 0 50px 0;
+}
+#footer .inner .cs_info{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: auto;
+}
+#footer .inner .cs_info > div {
+  width: 50% 1500px;
+}
+#footer .inner .bt_bank{
+  margin: 0;
 }
 
 /* FOLLOW US */
-#footer .inner .bt_wrap2{
-  border-top: 0 none;
-  position: absolute;
-  right: 30%;
+#footer .inner .bt_sns{
+  margin-left: 93px;
+  padding-right: 50px;
 }
-#footer .inner .bt_wrap2 .bt_sns a{
-  
+#footer .inner .bt_sns .title{
+  margin: 25px 0 10px 0;
+  font-size: 25px;
+  text-align: center;
+  font-weight: 700;
 }
 
+
+/* 회사소개 이용약관 개인정보처리방침 이용안내 */
+#footer .inner .bt_util{
+  display: flex;
+  justify-content: center;
+  width: auto;
+  padding: 15px;
+  border-top: 1px solid #000;
+  background-color: #CAD9C6;
+}
 
 /* //캐주얼 footer */
+
+/* @media */
+@media (max-width:1024px){
+  #footer{
+    padding: 0;
+  }
+  #footer .inner{
+    padding: 0;
+    white-space: nowrap;
+
+  }
+  #footer .inner .bt_logo{
+  font-size: 40px;
+  border-bottom: none;
+  }
+  #footer .inner .bt_info,
+  #footer .inner .bt_cscenter{
+    border-right: none;
+  }
+  #footer .inner .bt_util{
+    border-top: none;
+    padding: 10px;
+  }
+  #footer .inner .bt_cscenter,
+  #footer .inner .bt_sns{
+    margin-left: 0;
+  }
+  #footer .inner .bt_cscenter .title{
+    margin-top: 0;
+  }
+  #footer .inner .bt_info .bt_info_list{
+    padding: 0;
+  }
+
+
+}
