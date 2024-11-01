@@ -1,8 +1,11 @@
 /* 캐주얼 footer */
 #footer{
+  font-family: "Montserrat", sans-serif;
   background-color: #F5FAF4;
 }
 #footer .inner{
+  width: 100%;
+  margin: 0 auto;
   padding: 0 0 15px;
   display: flex;
   flex-direction: column;
@@ -12,6 +15,7 @@
   display: flex;
   justify-content: center;
   width: auto;
+  font-family: "Cormorant Upright", serif;
   font-size: 30px;
   border-bottom: 1px solid #000;
   margin-bottom: auto;
@@ -66,7 +70,11 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  gap: 50px;
   width: auto;
+}
+#footer .inner .cs_info strong{
+  font-size: 15px;
 }
 #footer .inner .cs_info > div {
   width: 50% 1500px;
@@ -74,6 +82,24 @@
 #footer .inner .bt_bank{
   margin: 0;
 }
+#footer .inner .bt_cscenter .bt_txt02{
+  line-height: 1.5;
+}
+#footer .inner .bt_cscenter .bt_txt03{
+  margin-top: 3px;
+}
+.bt_cscenter .cs_info [data-ez-item="refund"] span[data-ez-role="refund_address"] {
+  margin: 20px 0;
+  line-height: 1.5;
+  display: inline-block;
+  font-size: 12px;
+}
+.bt_cscenter .cs_info [data-ez-item="refund"] span[data-ez-role="refund_notice"] {
+  line-height: 1.5;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
 
 /* FOLLOW US */
 #footer .inner .bt_sns{
@@ -99,6 +125,7 @@
 }
 
 /* //캐주얼 footer */
+
 
 /* @media */
 @media (max-width:1024px){
