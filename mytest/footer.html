@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/cafe24/캐주얼/layout/basic/css/ec-base-prdInfo.css">
     <link rel="stylesheet" href="/cafe24/캐주얼/layout/basic/css/ec-base-paginate.css">
 
-    <link rel="stylesheet" href="mytest-style2.css">
+    <link rel="stylesheet" href="footer-style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,19 +42,23 @@
             
             <div class="bt_wrap">
                 <div class="bt_info" data-ez-group="info">
-                    <div class="title" data-ez-role="title">ABOUT US</div>
-                    <div class="bt_info_list" data-ez-role="list">
+                    <div class="title" data-ez-role="title">
+                        ABOUT US
+                        <span class="arrow-icon" onclick="toggleAboutContent()">▼</span>
+                    </div>
+                    <div class="bt_info_list" data-ez-role="list" id="aboutContent">
                         <div data-ez-item="company_name">
                             <span data-ez-role="field"></span> <span data-ez-role="value">(주)어나더어스 / anotherearth</span>
                         </div>
                         <div data-ez-item="president_name">
                             <span data-ez-role="field">대표자</span> <span data-ez-role="value">홍예지</span>
                         </div>
-                        <div data-ez-item="address">
-                            <span data-ez-role="field">주소</span> <span data-ez-role="value">경기도 화성시 무슨동 1234-56 (12345)</span>
-                        </div>
                         <div data-ez-item="phone">
                             <span data-ez-role="field">TEL</span> <span data-ez-role="value">010-5464-8533</span>
+                        </div>
+                        <br>
+                        <div data-ez-item="address">
+                            <span data-ez-role="field">주소</span> <span data-ez-role="value">경기도 화성시 무슨동 1234-56 (12345)</span>
                         </div>
                         <div data-ez-item="company_regno">
                             <span data-ez-role="field">사업자 등록번호</span> <span data-ez-role="value">123-45-67890</span>
@@ -65,13 +69,12 @@
                         <div data-ez-item="cpo_name">
                             <span data-ez-role="field">개인정보보호책임자</span> <span data-ez-role="value">홍예지</span>
                         </div>
+                        <br>
                         <div class="bt_copyright">
                             Copyright © anotherearth. All Rights Reserved.<br>Hosting by Cafe24 Corp.
                         </div>
-                        <!-- //bt_copyright -->
                     </div>
-                    <!-- //bt_info_list -->
-                </div>
+                </div>                
                 <!-- //bt_info -->
 
                 <div data-ez-group="cs" class="xans-element- xans-layout xans-layout-info bt_cscenter ">
@@ -81,6 +84,7 @@
                             <div data-ez-item="phone" class="bt_txt01">
                                 <span data-ez-role="value"><strong>070-1234-5678</strong></span>
                             </div>
+                            <br>
                             <div data-ez-item="runtime" class="bt_txt02">
                                 <span data-ez-role="value">
                                     <span>OPEN</span> <span>10:00 ~ 17:00</span><br>
@@ -108,6 +112,7 @@
                          <div>
                             <div data-ez-item="refund" class="bt_txt03">
                                 <strong>[교환/반품주소]</strong><br>
+                                <br>
                                 <span data-ez-role="refund_address">경기도 화성시 무슨동<br>(주)어나더어스 물류센터 앞</span><br>
                                 <span data-ez-role="refund_notice">교환이나 반품 시 반드시<br>공지사항을 확인해 주세요</span>
                             </div>
@@ -143,7 +148,7 @@
                                 </path>
                             </g>
                         </svg>
-                        kakao</a>
+                        kakaotalk</a>
                 </div>
                 <!-- //bt_sns -->
             </div>
@@ -190,6 +195,43 @@
         <!-- //inner -->
     </footer>
     <!-- //footer -->
+
+<script>
+function toggleAboutContent() {
+    // 화면 너비가 1024px 이하일 때만 실행
+    if (window.innerWidth <= 1024) {
+        const content = document.getElementById("aboutContent");
+        const arrowIcon = document.querySelector(".arrow-icon");
+
+        // aboutContent의 표시 상태를 토글
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block";
+            arrowIcon.textContent = "▲"; // 열려 있을 때는 위쪽 화살표
+        } else {
+            content.style.display = "none";
+            arrowIcon.textContent = "▼"; // 닫혀 있을 때는 아래쪽 화살표
+        }
+    }
+}
+
+// 화면 크기가 변경될 때도 조건에 따라 적용
+window.addEventListener("resize", () => {
+    const content = document.getElementById("aboutContent");
+    const arrowIcon = document.querySelector(".arrow-icon");
+
+    if (window.innerWidth > 1024) {
+        // 화면이 1024px 이상일 때 aboutContent를 항상 표시하고 화살표 숨김
+        content.style.display = "block";
+        arrowIcon.style.display = "none";
+    } else {
+        // 1024px 이하일 때는 aboutContent를 숨김 상태로 설정
+        content.style.display = "none";
+        arrowIcon.style.display = "inline";
+        arrowIcon.textContent = "▼";
+    }
+});
+
+</script>
 
 </body>
 
