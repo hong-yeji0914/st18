@@ -1,0 +1,323 @@
+/* 캐주얼 footer */
+#footer{
+  font-family: "Montserrat", sans-serif;
+  white-space: nowrap;
+}
+
+#footer .inner{
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 0 15px;
+  display: flex;
+  flex-direction: column;
+  background-color: #F5FAF4;
+}
+
+#footer .inner .bt_logo{
+  display: flex;
+  justify-content: center;
+  width: auto;
+  font-family: "Cormorant Upright", serif;
+  font-size: 30px;
+  border-bottom: 1px solid #505050;
+  margin-bottom: auto;
+}
+
+
+/* ABOUT US */
+#footer .inner .bt_info{
+  border-right: 1px solid #505050;
+  /* position: relative; */
+  margin-top: 0;
+  padding: 0 100px;
+}
+#footer .inner .bt_info .title{
+  margin-top: 25px;
+  font-size: 25px;
+  text-align: center;
+}
+
+#footer .inner .bt_info .bt_info_list{
+  display: block;
+  padding: 0 0 50px 0;
+}
+#footer .inner .bt_info .bt_info_list[data-ez-item="company_name"]{order:1;}
+#footer .inner .bt_info .bt_info_list[data-ez-item="president_name"]{order:2;}
+#footer .inner .bt_info .bt_info_list[data-ez-item="address"]{order:4;}
+#footer .inner .bt_info .bt_info_list[data-ez-item="phone"]{order:3;}
+#footer .inner .bt_info .bt_info_list[data-ez-item="company_regno"]{order:5;}
+#footer .inner .bt_info .bt_info_list[data-ez-item="network_regno"]{order:6;}
+#footer .inner .bt_info .bt_info_list[data-ez-item="cpo_name"]{order:7;}
+
+
+/* CONTACT US */
+#footer .inner .bt_wrap{
+  justify-content: left;
+  margin: 0;
+}
+#footer .inner .bt_cscenter{
+  margin-left: 200px;
+  padding-right: 200px;
+  border-right: 1px solid #505050;
+}
+#footer .inner .bt_cscenter .title{
+  margin-top: 25px;
+  font-size: 25px;
+  text-align: center;
+}
+#footer .inner .bt_cscenter .cs_info{
+  padding: 0 0 50px 0;
+}
+#footer .inner .cs_info{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 80px;
+  width: auto;
+}
+#footer .inner .cs_info strong{
+  font-size: 21px;
+}
+#footer .inner .cs_info > div {
+  width: 50% 1500px;
+}
+#footer .inner .bt_bank{
+  margin: 0;
+}
+#footer .inner .bt_cscenter .bt_txt02{
+  font-size: 16px;
+  line-height: 1.5;
+}
+#footer .inner .bt_cscenter .bt_txt03{
+  margin-top: 10px;
+  white-space: nowrap;
+}
+.bt_cscenter .cs_info [data-ez-item="refund"] span[data-ez-role="refund_address"] {
+  margin: 20px 0;
+  line-height: 1.5;
+  display: inline-block;
+  font-size: 16px;
+}
+.bt_cscenter .cs_info [data-ez-item="refund"] span[data-ez-role="refund_notice"] {
+  line-height: 1.5;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+
+/* FOLLOW US */
+#footer .inner .bt_sns{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 100px;
+}
+#footer .inner .bt_sns .title{
+  margin: 34px 0 20px 0;
+  font-size: 25px;
+  text-align: center;
+  font-weight: 700;
+}
+#footer .inner .bt_sns a{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
+}
+#footer .inner .bt_sns a .icon {
+  width: 20px; /* 아이콘의 크기를 일정하게 유지 */
+  height: 20px;
+  fill: #000; /* 아이콘 색상 */
+}
+#footer .inner .bt_sns a .icon,
+#footer .inner .bt_sns a svg {
+  min-width: 20px; /* 아이콘의 고정된 너비 */
+}
+#footer .inner .bt_sns a:hover {
+  color: #888; /* 호버 시 색상 변경 */
+}
+#footer .inner .bt_sns a:hover .icon {
+  fill: #888; /* 호버 시 아이콘 색상 변경 */
+}
+
+
+/* 회사소개 이용약관 개인정보처리방침 이용안내 */
+#footer .inner .bt_util{
+  display: flex;
+  justify-content: center;
+  width: auto;
+  padding: 15px;
+  border-top: 1px solid #505050;
+  background-color: #CAD9C6;
+}
+
+/* 자바스크립트 */
+
+.title {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.arrow-icon {
+  margin-left: 8px;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+#aboutContent {
+  display: none; /* 초기에는 숨김 상태 */
+  padding: 10px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+#aboutContent.active {
+  display: block; /* active 클래스가 추가되면 표시됨 */
+}
+
+
+/* //캐주얼 footer */
+
+
+/* @media */
+@media (max-width:1024px){
+  #footer{
+    padding: 0;
+  }
+  #footer .inner{
+    padding: 0;
+    white-space: nowrap;
+  }
+  #footer .inner .bt_logo{
+  font-size: 40px;
+  border-bottom: none;
+  }
+  #footer .inner .bt_info,
+  #footer .inner .bt_cscenter{
+    border-right: none;
+  }
+  #footer .inner .bt_util{
+    border-top: none;
+    padding: 10px;
+  }
+  #footer .inner .bt_cscenter,
+  #footer .inner .bt_sns{
+    margin-left: 0;
+  }
+  #footer .inner .bt_cscenter .title{
+    margin-top: 0;
+  }
+  #footer .inner .bt_info .bt_info_list{
+    padding: 0;
+  }
+
+
+  /* new */
+  #footer {
+    padding: 0;
+    background-color: #F5FAF4;
+    position: relative;
+  }
+  #footer .inner {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    white-space: normal;
+    padding-bottom: 60px; /* bt_util이 가리지 않도록 여백 추가 */
+  }
+
+  #footer .inner .bt_logo {
+    font-size: 35px;
+    text-align: left;
+    margin-bottom: 15px;
+    border-bottom: none;
+  }
+
+  /* CONTACT US Section (순서 1로 변경) */
+  #footer .inner .bt_cscenter {
+    order: 1;
+    margin: 20px 0;
+    padding: 0 10px;
+    text-align: left;
+  }
+  #footer .inner .bt_cscenter .title {
+    font-size: 22px;
+    margin: 10px 0;
+    text-align: left;
+  }
+  #footer .inner .bt_cscenter .cs_info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 0;
+  }
+
+  /* FOLLOW US Section (순서 2로 변경) */
+  #footer .inner .bt_sns {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 10px;
+    text-align: left;
+  }
+  #footer .inner .bt_sns .title {
+    font-size: 22px;
+    margin: 20px 0;
+    text-align: left;
+  }
+  #footer .inner .bt_sns a {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+
+  /* ABOUT US Section (순서 3로 변경) */
+  #footer .inner .bt_info {
+    order: 3;
+    border: none;
+    padding: 0 10px;
+    margin-top: 20px;
+    text-align: left;
+  }
+  #footer .inner .bt_info .title {
+    font-size: 22px;
+    margin: 10px 0;
+    text-align: left;
+  }
+  #footer .inner .bt_info .bt_info_list {
+    padding: 0;
+    font-size: 14px;
+  }
+
+  /* UTIL Links Section */
+  #footer .inner .bt_util {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    background-color: #CAD9C6;
+    text-align: left;
+  }
+  #footer .inner .bt_util ul {
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+  }
+  #footer .inner .bt_util ul li {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .arrow-icon {
+      display: none;
+  }
+}
