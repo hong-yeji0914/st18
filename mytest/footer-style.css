@@ -27,19 +27,18 @@
 /* ABOUT US */
 #footer .inner .bt_info{
   border-right: 1px solid #505050;
-  /* position: relative; */
   margin-top: 0;
   padding: 0 100px;
 }
 #footer .inner .bt_info .title{
   margin-top: 25px;
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
 }
 
 #footer .inner .bt_info .bt_info_list{
   display: block;
-  padding: 0 0 50px 0;
+  padding: 0 0 25px 0;
 }
 #footer .inner .bt_info .bt_info_list[data-ez-item="company_name"]{order:1;}
 #footer .inner .bt_info .bt_info_list[data-ez-item="president_name"]{order:2;}
@@ -48,6 +47,10 @@
 #footer .inner .bt_info .bt_info_list[data-ez-item="company_regno"]{order:5;}
 #footer .inner .bt_info .bt_info_list[data-ez-item="network_regno"]{order:6;}
 #footer .inner .bt_info .bt_info_list[data-ez-item="cpo_name"]{order:7;}
+
+#footer .inner .bt_info .bt_info_list > div span:first-child{
+  font-weight: normal;
+}
 
 
 /* CONTACT US */
@@ -62,7 +65,7 @@
 }
 #footer .inner .bt_cscenter .title{
   margin-top: 25px;
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
 }
 #footer .inner .bt_cscenter .cs_info{
@@ -76,7 +79,7 @@
   width: auto;
 }
 #footer .inner .cs_info strong{
-  font-size: 21px;
+  font-size: 15px;
 }
 #footer .inner .cs_info > div {
   width: 50% 1500px;
@@ -85,7 +88,7 @@
   margin: 0;
 }
 #footer .inner .bt_cscenter .bt_txt02{
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.5;
 }
 #footer .inner .bt_cscenter .bt_txt03{
@@ -93,14 +96,14 @@
   white-space: nowrap;
 }
 .bt_cscenter .cs_info [data-ez-item="refund"] span[data-ez-role="refund_address"] {
-  margin: 20px 0;
+  margin: 1px 0 10px;
   line-height: 1.5;
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
 }
 .bt_cscenter .cs_info [data-ez-item="refund"] span[data-ez-role="refund_notice"] {
   line-height: 1.5;
-  font-size: 16px;
+  font-size: 12px;
   text-decoration: underline;
 }
 
@@ -109,18 +112,18 @@
 #footer .inner .bt_sns{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   padding: 0 100px;
 }
 #footer .inner .bt_sns .title{
   margin: 34px 0 20px 0;
-  font-size: 25px;
-  text-align: center;
+  font-size: 20px;
+  text-align: left;
   font-weight: 700;
 }
 #footer .inner .bt_sns a{
   display: flex;
-  align-items: center;
+  align-items: left;
   gap: 10px;
   margin: 5px 0;
 }
@@ -211,6 +214,11 @@
   #footer .inner .bt_info .bt_info_list{
     padding: 0;
   }
+
+  #footer .inner .bt_util ul li a {
+    font-size: 14px;
+    font-weight: 400;
+}
 
 
   /* new */
@@ -308,12 +316,14 @@
     display: flex;
     gap: 15px;
     padding: 0;
-    list-style: none;
     margin: 0;
+    position: relative;
+    top: 5px;
   }
   #footer .inner .bt_util ul li {
     text-align: left;
   }
+
 }
 
 @media (min-width: 1024px) {
