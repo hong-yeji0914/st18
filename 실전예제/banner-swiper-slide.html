@@ -58,12 +58,6 @@
         .myslide .text-box .text-title {}
         .myslide .text-box .text-desc {}
 
-
-        @media (max-width:767px) {
-            .myslide__list {}
-            .myslide__item {}
-        }
-
         /* swiper ui 변경 */
         .myslide .swiper-pagination-bullet{
             margin: 0 3px;
@@ -73,6 +67,26 @@
             transform: translateX(-50%);
             bottom: 50px;
             left: 50%;
+        }
+
+
+        @media (max-width:720px) {
+            .myslide{}
+            .myslide__inner{
+                /* width: 92%; */
+                margin: 0 50px;
+                min-width: 320px;
+                overflow: unset;
+            }
+            .myslide .swiper-pagination{
+                bottom: 30px;
+            }
+
+            .swiper-button-next, 
+            .swiper-container-rtl .swiper-button-prev {
+                display: none;
+            }
+
         }
 
         
@@ -159,7 +173,7 @@
         </div>
     </div>
     <!-- //myslide -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script> /* 네비게이션 */
         var swiper100 = new Swiper(".myslide__inner", {
