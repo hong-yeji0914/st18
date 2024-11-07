@@ -12,35 +12,21 @@
         ul,ol,li {list-style: none;}
         a {text-decoration: none;}
 
-        /* 단배너 css */
+        /* myslide css */
         .myslide {
-            --banner-gap: 20px;
-            --banner-m-h-gap: 10px;
-            /*모바일 수평 갭*/
-            --banner-m-v-gap: 10px;
-            /*모바일 수직 갭*/
-            --banner-top-margin: 50px;
-            --banner-bottom-margin: 50px;
-            --banner-top-padding: 50px;
-            --banner-bottom-padding: 50px;
-            --banner-max-width: 1440px;
-            --col1: 100%;
-            --col2: 50%;
-            --col3: 33.333%;
-            --col4: 25%;
-            --col5: 20%;
+            --slide-top-margin: 50px;
+            --slide-bottom-margin: 50px;
+            --slide-max-width: 1440px;
         }
 
         .myslide {
-            margin-top: var(--banner-top-margin);
-            margin-bottom: var(--banner-bottom-margin);
+            margin-top: var(--slide-top-margin);
+            margin-bottom: var(--slide-bottom-margin);
         }
 
         .myslide__inner {
-            max-width: var(--banner-max-width);
+            max-width: var(--slide-max-width);
             margin: 0 auto;
-            padding-top: var(--banner-top-padding);
-            padding-bottom: var(--banner-bottom-padding);
         }
 
         .myslide__list {
@@ -51,12 +37,6 @@
         .myslide__item {
             box-sizing: border-box;
         }
-
-        .myslide__list.grid1 .myslide__item {width: var(--col1);}
-        .myslide__list.grid2 .myslide__item {width: var(--col2);}
-        .myslide__list.grid3 .myslide__item {width: var(--col3);}
-        .myslide__list.grid4 .myslide__item {width: var(--col4);}
-        .myslide__list.grid5 .myslide__item {width: var(--col5);}
 
         .myslide__link {
             display: block;
@@ -69,6 +49,12 @@
             width: 100%;
         }
 
+        .myslide .text-box{
+            position: absolute;
+            left: 100px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
         .myslide .text-box .text-title {}
         .myslide .text-box .text-desc {}
 
@@ -78,17 +64,29 @@
             .myslide__item {}
         }
 
-        /* 단배너 css 끝 */
+        /* swiper ui 변경 */
+        .myslide .swiper-pagination-bullet{
+            margin: 0 3px;
+        }
+        
+        .myslide .swiper-pagination {
+            transform: translateX(-50%);
+            bottom: 50px;
+            left: 50%;
+        }
+
+        
+        /* myslide css 끝 */
     </style>
 </head>
 
 <body>
     <!-- myslide 시작 -->
     <div class="myslide">
-        <div class="myslide__inner">
-            <ul class="myslide__list">
+        <div class="myslide__inner swiper">
+            <ul class="myslide__list swiper-wrapper">
                 <!-- 01_li -->
-                <li class="myslide__item">
+                <li class="myslide__item swiper-slide">
                     <a href="" class="myslide__link">
                         <div class="thumb-box">
                             <picture>
@@ -103,7 +101,7 @@
                     </a>
                 </li>
                 <!-- 02_li -->
-                <li class="myslide__item">
+                <li class="myslide__item swiper-slide">
                     <a href="" class="myslide__link">
                         <div class="thumb-box">
                             <picture>
@@ -118,7 +116,7 @@
                     </a>
                 </li>
                 <!-- 03_li -->
-                <li class="myslide__item">
+                <li class="myslide__item swiper-slide">
                     <a href="" class="myslide__link">
                         <div class="thumb-box">
                             <picture>
@@ -133,7 +131,7 @@
                     </a>
                 </li>
                 <!-- 04_li -->
-                <li class="myslide__item">
+                <li class="myslide__item swiper-slide">
                     <a href="" class="myslide__link">
                         <div class="thumb-box">
                             <picture>
@@ -149,10 +147,35 @@
                 </li>
 
             </ul>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+        
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
         </div>
     </div>
     <!-- //myslide -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+
+    <script> /* 네비게이션 */
+        var swiper100 = new Swiper(".myslide__inner", {
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          pagination: {
+            el: ".swiper-pagination",
+          },
+          scrollbar: {
+            el: ".swiper-scrollbar",
+            hide: true,
+          },
+        });
+      </script>
 </body>
 
 </html>
