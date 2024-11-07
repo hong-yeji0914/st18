@@ -389,6 +389,8 @@
 .myslide__inner {
   max-width: var(--slide-max-width);
   margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }
 
 .myslide__list {
@@ -421,10 +423,6 @@
 .myslide .text-box .text-desc {}
 
 
-@media (max-width:767px) {
-  .myslide__list {}
-  .myslide__item {}
-}
 
 /* swiper ui 변경 */
 .myslide .swiper-pagination-bullet{
@@ -440,5 +438,39 @@
 .myslide .swiper-pagination-bullet-active {
   background: #000000;
 }
+
+.myslide .swiper-button-next, 
+.myslide .swiper-button-prev{
+  /* 화살표 이미지를 바꾸고 싶다면 사용하는 선택자 */
+}
+
+.myslide .swiper_scrollbar{
+  height: 4px;
+  bottom: 28px;
+  z-index: 990;
+}
+
+
+@media (max-width:720px) {
+  .myslide{}
+  .myslide__inner{
+      /* width: 92%; */
+      margin: 0 50px;
+      min-width: 320px;
+      overflow: unset;
+  }
+  .myslide .swiper-pagination{
+      bottom: 30px;
+  }
+
+  .myslide .swiper-button-next, 
+  .myslide .swiper-button-prev,
+  .myslide .swiper-container-rtl .swiper-button-next 
+  .myslide .swiper-container-rtl .swiper-button-prev {
+      display: none;
+  }
+
+}
+
 
 /* myslide css 끝 */
